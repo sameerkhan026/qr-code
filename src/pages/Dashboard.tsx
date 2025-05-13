@@ -24,7 +24,8 @@ import {
   Lock,
   Globe2,
   Palette,
-  LogOut
+  LogOut,
+  Clock
 } from 'lucide-react';
 import {
   FacebookShareButton,
@@ -969,41 +970,42 @@ function Dashboard() {
 
       <main className="max-w-7xl mx-auto p-6">
         <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8">
-          <div className="flex gap-4 mb-8">
-            <button
-              onClick={() => setActiveTab('generator')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
-                activeTab === 'generator'
-                  ? 'bg-indigo-100 text-indigo-600'
-                  : 'text-gray-600 hover:bg-gray-100'
-              }`}
-            >
-              <QrCode className="w-5 h-5" />
-              Generator
-            </button>
-            <button
-              onClick={() => setActiveTab('history')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
-                activeTab === 'history'
-                  ? 'bg-indigo-100 text-indigo-600'
-                  : 'text-gray-600 hover:bg-gray-100'
-              }`}
-            >
-              <History className="w-5 h-5" />
-              History
-            </button>
-            <button
-              onClick={() => setActiveTab('help')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
-                activeTab === 'help'
-                  ? 'bg-indigo-100 text-indigo-600'
-                  : 'text-gray-600 hover:bg-gray-100'
-              }`}
-            >
-              <HelpCircle className="w-5 h-5" />
-              How to Use
-            </button>
-          </div>
+          <div className="flex flex-col sm:flex-row gap-4 mb-8 w-full">
+  <button
+    onClick={() => setActiveTab('generator')}
+    className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors w-full sm:w-auto ${
+      activeTab === 'generator'
+        ? 'bg-indigo-100 text-indigo-600'
+        : 'text-gray-600 hover:bg-gray-100'
+    }`}
+  >
+    <QrCode className="w-5 h-5" />
+    Generator
+  </button>
+  <button
+    onClick={() => setActiveTab('history')}
+    className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors w-full sm:w-auto ${
+      activeTab === 'history'
+        ? 'bg-indigo-100 text-indigo-600'
+        : 'text-gray-600 hover:bg-gray-100'
+    }`}
+  >
+    <History className="w-5 h-5" />
+    History
+  </button>
+  <button
+    onClick={() => setActiveTab('help')}
+    className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors w-full sm:w-auto ${
+      activeTab === 'help'
+        ? 'bg-indigo-100 text-indigo-600'
+        : 'text-gray-600 hover:bg-gray-100'
+    }`}
+  >
+    <HelpCircle className="w-5 h-5" />
+    How to Use
+  </button>
+</div>
+
 
           {activeTab === 'generator' ? (
             <>
@@ -1164,7 +1166,7 @@ function Dashboard() {
                     <div className="mt-6">
                       <h3 className="text-lg font-medium text-gray-900 mb-4 text-center">Share QR Code</h3>
                       <div className="flex justify-center gap-4 flex-wrap">
-                        <FacebookShareButton url={shareUrl} quote={shareTitle}>
+                        <FacebookShareButton url={shareUrl} title={shareTitle}>
                           <FacebookIcon size={40} round />
                         </FacebookShareButton>
                         <TwitterShareButton url={shareUrl} title={shareTitle}>
