@@ -953,19 +953,21 @@ function Dashboard() {
     <div className="min-h-screen relative bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
       <header className="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <QrCode className="w-8 h-8 text-indigo-600" />
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
-              QR Code Generator
-            </h1>
-          </div>
-          <button
-            onClick={() => setShowSettings(true)}
-            className="flex items-center gap-2 hover:bg-gray-100 px-4 py-2 rounded-lg transition-colors"
-          >
-            <Settings className="w-6 h-6 text-gray-600" />
-          </button>
-        </div>
+  <div className="flex items-center gap-3">
+    <QrCode className="w-8 h-8 text-indigo-600 transition-transform duration-300 hover:scale-105" />
+
+    <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text transition-transform duration-300 hover:scale-105">
+      QR Code Generator
+    </h1>
+  </div>
+  <button
+    onClick={() => setShowSettings(true)}
+    className="flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:scale-105"
+  >
+    <Settings className="w-6 h-6 text-gray-600" />
+  </button>
+</div>
+
       </header>
 
       <main className="max-w-7xl mx-auto p-6">
